@@ -1,7 +1,5 @@
 #pragma once
 #include "Bank.h"
-#pragma once
-#include "Bank.h"
 typedef unsigned int uint;
 
 
