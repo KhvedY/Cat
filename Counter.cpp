@@ -20,11 +20,12 @@ Counter::Counter(uint min_value_Set, uint max_value_Set, uint step_grow, uint cu
 
 void Counter::Setcurrent_value(uint current_value)
 {
-	if (current_value<=max_value&&current_value<=max_value_Set)
+	if (current_value<=max_value)
 		this->current_value = current_value;
 	else
 		std::cout << " Too HIGH value of counter !" << std::endl;
 }
+
 
 void Counter::Setstep_grow(uint step_grow)
 {
