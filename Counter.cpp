@@ -8,10 +8,6 @@ Counter::Counter(uint zeroing)
 }
 Counter::Counter(uint min_value, uint max_value, uint step, uint current_value)
 {
-	this->min_value = 0;
-	this->max_value = 0;
-	this->step = 0;
-	this->current_value = 0;
 	Setmin_value(min_value);
 	Setmax_value(max_value);
 	Setstep(step);
