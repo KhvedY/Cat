@@ -20,15 +20,19 @@ struct Fullname
 
 struct Marks
 {
-	uint * credit;
+	uint *credit;
 	uint *exams;
 	uint *course_works;
+	uint c_size = 0;
+	uint e_size = 0;
+	uint cw_size = 0;
+
 };
 
 struct Personal_data
 {
 	char* adress;
-	uint telephone_number;
+	char* telephone_number;
 };
 
 class Student
@@ -42,28 +46,47 @@ private:
 
 public:
 
-	Student(char* surname, char* name, char* patronymic, char* adress, uint telephone_number, uint day, uint month, uint year);
-	Student() :Student("Ivanov", "Ivan", "Ivanovich", "Deribasovskaya 1", 322223, 1, 2, 1990){};
-	Student(uint* credit, uint* exams, uint* course_works);
-	Student() : Student("9", "10", "11"){};
+	Student(char* surname, char* name, char* patronymic, char* adress, char* telephone_number, uint day, uint month, uint year);
+	Student() :Student("Ivanov", "Ivan", "Ivanovich", "Deribasovskaya 1", "322223", 1, 2, 1990){};
 	~Student();
 
-	void show();
+	void SetMarks(uint *&arr, uint &size, uint SomeMark);
 
 	void Setday(uint Day);
-	void Setmonth(uint Month);
-	void Setyear(uint Year);
-	void Setsurname(char* surname);
-	void Setname(char* name);
-	void Setpatronymic(char* patronymic);
-	void Setcredit(uint* credit);
-	void Setexams(uint* exams);
-	void Setcourse_works(uint* course_works);
-	void Setadress(char* adress);
-	void Settelephone_number(uint telephone_number);
+	uint Getday(){ return birthday.Day; };
 
-	Birthday Get_birthday(){ return birthday; };
-	Fullname Get_name(){ return Name; };
-	Marks Get_assessment(){ return mark; };
-	Personal_data Get_p_data(){ return p_data; };
+	void Setmonth(uint Month);
+	uint Getmonth(){ return birthday.Month; };
+
+	void Setyear(uint Year);
+	uint Getyear(){ return birthday.Year; };
+
+	void Setsurname(char* surname);
+	char* Getsurname(){ return Name.surname; };
+
+	void Setname(char* name);
+	char* Getname(){ return Name.name; };
+
+	void Setpatronymic(char* patronymic);
+	char* Getpatronymic(){ return Name.patronymic; };
+
+	void Setcredit(uint SomeMarks);
+	uint Getcredit(){ return mark.SomeMarks; };
+
+	void Setexams(uint SomeMarks);
+	uint Getexams(){ return mark.SomeMarks; };
+
+	void Setcourse_works(uint SomeMarks);
+	uint Getcourse_works(){ return mark.SomeMarks; };
+
+	void Setadress(char* adress);
+	char* Getadress(){ return p_data.adress; };
+
+	void Settelephone_number(char* telephone_number);
+	char* Gettelephone_number(){ return p_data.telephone_number; };
+
 };
+
+
+
+
