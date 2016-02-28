@@ -9,59 +9,8 @@ class AbstractWeapon abstract
 public:
 
 	virtual void sound() = 0;
-
-	virtual void Action_1()
-	{
-
-		int key = _getch();
-		switch (key)
-		{
-		case 32:   //пробел
-			cout << "Aiming" << endl;
-			break;
-		case 13:  //enter
-			cout << "Dealing damage!" << endl;
-			break;
-		}
-	}
-
-	virtual void Action_2()
-	{
-		int key = _getch();
-		switch (key)
-		{
-		case 48:
-			cout << "Getting knife" << endl;
-			break;
-		case 49:
-			cout << "Getting usp" << endl;
-			break;
-		case 50:
-			cout << "Getting deagle" << endl;
-			break;
-		case 51:
-			cout << "Getting ak47" << endl;
-			break;
-		case 52:
-			cout << "Getting m16" << endl;
-			break;
-		case 53:
-			cout << "Getting awp" << endl;
-			break;
-		case 54:
-			cout << "Getting he" << endl;
-			break;
-		case 55:
-			cout << "Getting sg" << endl;
-			break;
-		case 56:
-			cout << "Getting flash" << endl;
-			break;
-		case 57:
-			cout << "Getting shotgun" << endl;
-			break;
-		}
-	}
+	virtual void Action_1() = 0;
+	virtual void Action_2() = 0;
 };
 
 class knife : public AbstractWeapon
@@ -70,6 +19,14 @@ public:
 	virtual void sound()
 	{
 		cout << "hdsh" << endl;
+	}
+	virtual void Action_1()
+	{
+		
+	}
+	virtual void Action_2()
+	{
+	
 	}
 };
 
@@ -80,6 +37,14 @@ public:
 	{
 		cout << "pew pew" << endl;
 	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
+	}
 };
 
 class deagle : public AbstractWeapon
@@ -88,6 +53,14 @@ public:
 	virtual void sound()
 	{
 		cout << "bang bang" << endl;
+	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
 	}
 };
 
@@ -99,6 +72,14 @@ public:
 	{
 		cout << "tatatata" << endl;
 	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
+	}
 };
 
 class m16 : public AbstractWeapon
@@ -107,6 +88,14 @@ public:
 	virtual void sound()
 	{
 		cout << "tttttt" << endl;
+	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
 	}
 };
 
@@ -117,6 +106,14 @@ public:
 	{
 		cout << "bam!" << endl;
 	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
+	}
 };
 
 class he : public AbstractWeapon
@@ -125,6 +122,14 @@ public:
 	virtual void sound()
 	{
 		cout << "boom!" << endl;
+	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
 	}
 };
 
@@ -135,6 +140,14 @@ public:
 	{
 		cout << "pshshshsh" << endl;
 	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
+	}
 };
 
 class flash : public AbstractWeapon
@@ -143,6 +156,14 @@ public:
 	virtual void sound()
 	{
 		cout << "bzzzzzz (milk)" << endl;
+	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
 	}
 };
 
@@ -153,6 +174,14 @@ public:
 	{
 		cout << "bdsh" << endl;
 	}
+	virtual void Action_1()
+	{
+
+	}
+	virtual void Action_2()
+	{
+
+	}
 };
 
 void GetSomeWeapon(AbstractWeapon& weapon)
@@ -160,7 +189,7 @@ void GetSomeWeapon(AbstractWeapon& weapon)
 	weapon.sound();
 }
 
-void main() 
+void main()
 {
 	knife knife;
 	usp usp;
@@ -173,6 +202,52 @@ void main()
 	flash flash;
 	shotgun shotgun;
 
+	int key1 = _getch();
+	switch (key1)
+	{
+	case 32:   //пробел
+		cout << "Aiming" << endl;
+		break;
+	case 13:  //enter
+		cout << "Dealing damage!" << endl;
+		break;
+	}
+
+	int key2 = _getch();
+	switch (key2)
+	{
+	case 48:
+		cout << "Getting knife" << endl;
+		break;
+	case 49:
+		cout << "Getting usp" << endl;
+		break;
+	case 50:
+		cout << "Getting deagle" << endl;
+		break;
+	case 51:
+		cout << "Getting ak47" << endl;
+		break;
+	case 52:
+		cout << "Getting m16" << endl;
+		break;
+	case 53:
+		cout << "Getting awp" << endl;
+		break;
+	case 54:
+		cout << "Getting he" << endl;
+		break;
+	case 55:
+		cout << "Getting sg" << endl;
+		break;
+	case 56:
+		cout << "Getting flash" << endl;
+		break;
+	case 57:
+		cout << "Getting shotgun" << endl;
+		break;
+	};
+	
 	GetSomeWeapon(knife);
 	knife.Action_1();
 	knife.Action_2();
