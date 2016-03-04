@@ -15,7 +15,7 @@ struct Fullname
 {
 	char* surname;
 	char* name;
-	char* patronymic; //отчество
+	char* patronymic;
 };
 
 struct Marks
@@ -26,7 +26,18 @@ struct Marks
 	uint c_size = 0;
 	uint e_size = 0;
 	uint cw_size = 0;
-
+	Marks()
+	{
+		credit = nullptr;
+		exams = nullptr;
+		course_works = nullptr;
+	}
+	~Marks()
+	{
+		if (credit) delete []credit;
+		if (exams) delete[]exams;
+		if (course_works) delete[]course_works;
+	}
 };
 
 struct Personal_data
@@ -71,13 +82,18 @@ public:
 	char* Getpatronymic(){ return Name.patronymic; };
 
 	void Setcredit(uint SomeMarks);
-	uint Getcredit(){ return mark.SomeMarks; };
+	uint Getcredit(uint ind){ 
+		if (mark.c_size >= ind)
+			return mark.credit[ind - 1];
+		else
+			return 0;
+	};
 
-	void Setexams(uint SomeMarks);
-	uint Getexams(){ return mark.SomeMarks; };
+	//void Setexams(uint SomeMarks);
+	//uint Getexams(){ return *mark.SomeMarks; };
 
-	void Setcourse_works(uint SomeMarks);
-	uint Getcourse_works(){ return mark.SomeMarks; };
+	//void Setcourse_works(uint SomeMarks);
+	//uint Getcourse_works(){ return mark.SomeMarks; };
 
 	void Setadress(char* adress);
 	char* Getadress(){ return p_data.adress; };
