@@ -16,6 +16,18 @@ struct Fullname
 	char* surname;
 	char* name;
 	char* patronymic;
+	Fullname()
+	{
+		surname = nullptr;
+		name = nullptr;
+		patronymic = nullptr;
+	}
+	~Fullname()
+	{
+		if (surname) delete[]surname;
+		if (name) delete[]name;
+		if (patronymic) delete[] patronymic;
+	}
 };
 
 struct Marks
@@ -34,7 +46,7 @@ struct Marks
 	}
 	~Marks()
 	{
-		if (credit) delete []credit;
+		if (credit) delete[]credit;
 		if (exams) delete[]exams;
 		if (course_works) delete[]course_works;
 	}
@@ -44,6 +56,16 @@ struct Personal_data
 {
 	char* adress;
 	char* telephone_number;
+	Personal_data()
+	{
+		adress = nullptr;
+		telephone_number = nullptr;
+	}
+	~Personal_data()
+	{
+		if (adress) delete[]adress;
+		if (telephone_number) delete[]telephone_number;
+	}
 };
 
 class Student
@@ -82,18 +104,31 @@ public:
 	char* Getpatronymic(){ return Name.patronymic; };
 
 	void Setcredit(uint SomeMarks);
-	uint Getcredit(uint ind){ 
+	uint Getcredit(uint ind)
+	{
 		if (mark.c_size >= ind)
 			return mark.credit[ind - 1];
 		else
 			return 0;
 	};
 
-	//void Setexams(uint SomeMarks);
-	//uint Getexams(){ return *mark.SomeMarks; };
+	void Setexams(uint SomeMarks);
+	uint Getexams(uint ind)
+	{
+		if (mark.e_size >= ind)
+			return mark.exams[ind - 1];
+		else
+			return 0;
+	};
 
-	//void Setcourse_works(uint SomeMarks);
-	//uint Getcourse_works(){ return mark.SomeMarks; };
+	void Setcourse_works(uint SomeMarks);
+	uint Getcourse_works(uint ind)
+	{
+		if (mark.cw_size >= ind)
+			return mark.course_works[ind - 1];
+		else
+			return 0;
+	};
 
 	void Setadress(char* adress);
 	char* Getadress(){ return p_data.adress; };
@@ -102,7 +137,3 @@ public:
 	char* Gettelephone_number(){ return p_data.telephone_number; };
 
 };
-
-
-
-
