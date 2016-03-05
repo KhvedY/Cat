@@ -1,36 +1,28 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include "Student.h"
 
 Student::Student(char* surname, char* name, char* patronymic, char* adress, char* telephone_number, uint day, uint month, uint year)
 {
-
-	this->Name.surname = nullptr;
-	this->Name.name = nullptr;
-	this->Name.patronymic = nullptr;
-	this->p_data.adress = nullptr;
-	this->p_data.telephone_number = nullptr;
 	Setsurname(surname);
-	//Setname(name);
-	//Setpatronymic(patronymic);
-	//Setadress(adress);
-	//Settelephone_number(telephone_number);
-	//Setday(day);
-	//Setmonth(month);
-	//Setyear(year);
+	Setname(name);
+	Setpatronymic(patronymic);
+	Setadress(adress);
+	Settelephone_number(telephone_number);
+	Setday(day);
+	Setmonth(month);
+	Setyear(year);
 }
 
 Student::~Student()
 {
-	//if (Name.surname) delete[]Name.surname;
-	/*delete[]Name.name;
-	delete[]Name.patronymic;
+    if (Name.surname) delete[]Name.surname;
+	if(Name.name) delete[]Name.name;
+	if(Name.patronymic) delete[]Name.patronymic;
 	if (p_data.adress) delete[]p_data.adress;
 	if (p_data.telephone_number) delete[]p_data.telephone_number;
 	if (mark.credit) delete[]mark.credit;
 	if (mark.course_works) delete[]mark.course_works;
-	if (mark.exams) delete[]mark.exams;*/
-}
-
+	if (mark.exams) delete[]mark.exams;
+};
 
 void Student::Setday(uint day)
 {
@@ -81,15 +73,15 @@ void Student::Setcredit(uint SomeMarks)
 	SetMarks(mark.credit, mark.c_size, SomeMarks);
 }
 
-//void Student::Setexams(uint SomeMarks)
-//{
-//	SetMarks(mark.exams, mark.e_size, SomeMarks);
-//}
-//
-//void Student::Setcourse_works(uint SomeMarks)
-//{
-//	SetMarks(mark.course_works, mark.cw_size, SomeMarks);
-//}
+void Student::Setexams(uint SomeMarks)
+{
+	SetMarks(mark.exams, mark.e_size, SomeMarks);
+}
+
+void Student::Setcourse_works(uint SomeMarks)
+{
+	SetMarks(mark.course_works, mark.cw_size, SomeMarks);
+}
 
 void Student::Setadress(char* adress)
 {
@@ -113,7 +105,7 @@ void Student::SetMarks(uint*&arr, uint &size, uint SomeMarks)
 	for (int i = 0; i < size; i++)
 		temp[i] = arr[i];
 	temp[size] = SomeMarks;
-	if(arr)delete[]arr;
+	if (arr)delete[]arr;
 	arr = temp;
 	size++;
 }
