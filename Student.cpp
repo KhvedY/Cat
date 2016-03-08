@@ -14,9 +14,9 @@ Student::Student(char* surname, char* name, char* patronymic, char* adress, char
 
 Student::~Student()
 {
-    if (Name.surname) delete[]Name.surname;
-	if(Name.name) delete[]Name.name;
-	if(Name.patronymic) delete[]Name.patronymic;
+	if (Name.surname) delete[]Name.surname;
+	if (Name.name) delete[]Name.name;
+	if (Name.patronymic) delete[]Name.patronymic;
 	if (p_data.adress) delete[]p_data.adress;
 	if (p_data.telephone_number) delete[]p_data.telephone_number;
 	if (mark.credit) delete[]mark.credit;
@@ -24,9 +24,30 @@ Student::~Student()
 	if (mark.exams) delete[]mark.exams;
 };
 
+bool Birthday::YearIsLeap(uint year)
+{
+	if (this->Year % 4 == 0 && this->Year % 100 != 0 || this->Year % 400 == 0)
+		return true;
+	return false;
+}
+
+uint Birthday::ThisDay()
+{
+	uint a;
+	if (this->Month == 1 || this->Month == 3 || this->Month == 5 || this->Month == 7 || this->Month == 8 || this->Month == 10 || this->Month == 12)
+		a = 31;
+	else if (this->Month == 4 || this->Month == 6 || this->Month == 9 || this->Month == 11)
+		a = 30;
+	if (this->Month == 2 && YearIsLeap(this->Year) == true)
+		a = 29;
+	if (this->Month == 2 && YearIsLeap(this->Year) == 0)
+		a = 28;
+	return a;
+}
+
 void Student::Setday(uint day)
 {
-	if (day < 31)
+	if (day > 0 && day <= birthday.ThisDay())
 		this->birthday.Day = day;
 }
 
@@ -38,6 +59,7 @@ void Student::Setmonth(uint month)
 
 void Student::Setyear(uint year)
 {
+	if(year > 0 && year < 2016)
 	this->birthday.Year = year;
 }
 
