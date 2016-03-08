@@ -9,6 +9,8 @@ struct Birthday
 	uint Day;
 	uint Month;
 	uint Year;
+	bool YearIsLeap(uint year);
+	uint ThisDay();
 };
 
 struct Fullname
@@ -80,8 +82,19 @@ private:
 public:
 
 	Student(char* surname, char* name, char* patronymic, char* adress, char* telephone_number, uint day, uint month, uint year);
-	Student() :Student("Ivanov", "Ivan", "Ivanovich", "Deribasovskaya 1", "322223", 1, 2, 1990){};
+	Student() 
+	{
+		char *surname = new char[];
+		char *name = new char[];
+		char *patronymic = new char[];
+		char *adress = new char[];
+		char *telephone_number = new char[];
+		uint day = 21;
+		uint month = 12;
+		uint year = 1992;
+	};
 	~Student();
+
 
 	void SetMarks(uint *&arr, uint &size, uint SomeMark);
 
