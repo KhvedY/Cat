@@ -1,0 +1,6 @@
+#include <windows.h>
+
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpszCmdLine, int nCmdShow)
+{
+	MessageBox(0, L"ヤロスラフ", L"ヤロスラフ", MB_OK | MB_ICONASTERISK);
+}
