@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Romanian_numbers
+namespace RomanianNumbers
 {
     class Program
     {
