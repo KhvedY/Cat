@@ -40,7 +40,7 @@ namespace RomanianNumbers
                     else if (counter == 4)
                         res = res + "CD";
                     else 
-                        for (int a = 0; a < counter; a++)
+                        for (int k = 0; k < counter; k++)
                         {
                             res = res + "C";
                         }
@@ -63,7 +63,7 @@ namespace RomanianNumbers
                 else if (counter == 4)
                     res = res + "XL";
                 else
-                    for (int a = 0; a < counter; a++)
+                    for (int k = 0; k < counter; k++)
                     {
                         res = res + "X";
                     }
@@ -81,7 +81,7 @@ namespace RomanianNumbers
                 else if (counter == 4)
                     res = res + "IV";
                 else
-                    for (int a = 0; a < counter; a++)
+                    for (int k = 0; k < counter; k++)
                     {
                         res = res + "I";
                         number--;
